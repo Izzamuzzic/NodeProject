@@ -19,7 +19,7 @@ let notes = [
   },
 ];
 
-app.use(express.static("dist"));
+app.use(express.static("build"));
 
 const requestLogger = (request, response, next) => {
   console.log("Method:", request.method);
@@ -92,7 +92,6 @@ app.delete("/api/notes/:id", (request, response) => {
 });
 
 app.use(unknownEndpoint);
-app.use(express.static("build"));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
